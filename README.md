@@ -6,7 +6,7 @@ Code and data for: "Large language models simulate intersectional identities wit
 > (21.1M raw model-output records, canonical artifacts, caches, intermediates) lives
 > in the Zenodo deposit below — unpack `surveysgpt_deposit_full.tar.gz` to run
 > anything that touches data.
-Archived at https://doi.org/10.5281/zenodo.21267989 · code mirrored at
+Archived at https://doi.org/10.5281/zenodo.21267988 · code mirrored at
 https://github.com/VRennard/Intersectionality-and-Synthetic-Identities. It contains
 the full pipeline — survey-response generation with LLMs, scoring against
 Pew American Trends Panel (ATP) ground truth, all canonical analysis
