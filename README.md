@@ -1,4 +1,6 @@
-# Code and data for: "Large language models simulate intersectional identities with a budget of one to two dimensions"
+# Intersectionality and Synthetic Identities
+
+Code and data for: "Large language models simulate intersectional identities with a budget of one to two dimensions" (Nature Human Behaviour submission).
 
 > **Code-only mirror.** This repository contains the code and documentation of the
 > replication package. The data (21.1M raw model-output records, canonical analysis
