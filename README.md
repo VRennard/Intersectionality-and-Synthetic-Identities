@@ -1,14 +1,13 @@
 # Intersectionality and Synthetic Identities
 
-Code and data for: "Large language models simulate intersectional identities with a budget of one to two dimensions" (Nature Human Behaviour submission).
+Code and data for: "Large language models simulate intersectional identities with a budget of one to two dimensions" — replication package for the Nature Human Behaviour submission.
 
-> **Code-only mirror.** This repository contains the code and documentation of the
-> replication package. The data (21.1M raw model-output records, canonical analysis
-> artifacts, weighted ground-truth caches, figure intermediates) lives in the Zenodo
-> deposit: https://doi.org/10.5281/zenodo.21267989 — download and unpack
-> `surveysgpt_deposit_full.tar.gz` to run anything that touches data.
-
-Replication package for the Nature Human Behaviour submission. It contains
+> **Code-only mirror.** This repository holds the code and documentation. The data
+> (21.1M raw model-output records, canonical artifacts, caches, intermediates) lives
+> in the Zenodo deposit below — unpack `surveysgpt_deposit_full.tar.gz` to run
+> anything that touches data.
+Archived at https://doi.org/10.5281/zenodo.21267989 · code mirrored at
+https://github.com/VRennard/Intersectionality-and-Synthetic-Identities. It contains
 the full pipeline — survey-response generation with LLMs, scoring against
 Pew American Trends Panel (ATP) ground truth, all canonical analysis
 artifacts, and the scripts that produce every figure and statistic in the
@@ -32,11 +31,16 @@ paper's TV-distance spine table.
 DATA_MANIFEST.md          authoritative audit of the 21.1M raw records
 requirements.txt          python dependencies (numpy/pandas/matplotlib for analysis;
                           openai/anthropic/aiohttp only for regenerating model outputs)
-*.py, *.sh                generation pipeline: llm_prompt_survey.py (core prompting),
-                          batch_api_runner*.py (OpenAI/Anthropic batch APIs),
-                          gen_* / augment_* / launch_* / run_* (campaign runners),
+*.py                      generation code, one file per paper condition:
+                          llm_prompt_survey.py (core prompting), batch_api_runner*.py
+                          (OpenAI/Anthropic batch APIs), run_all_waves_simulation.py +
+                          simulation_config.py + gen_population*.py (main aggregate pipeline),
+                          augment_* (pair/triple demographic campaigns),
                           indiv_sampling_* (individual-persona paradigm, INDIV_SAMPLING.md),
-                          logprob_readout.py (log-probability paradigm)
+                          logprob_readout.py (log-probability paradigm),
+                          gen_stoch_* / gen_promptvar_local.py (stochasticity & prompt controls),
+                          run_average_american.py (no-demographics baseline),
+                          run_instruct_baseprompt.py (base-vs-tuned condition)
 data/results/{tag}/       RAW MODEL OUTPUTS — one JSONL per wave per model/condition;
                           tags and record counts documented in DATA_MANIFEST.md
 data/responses/           aggregated human marginals per question (15 ATP waves)
@@ -49,7 +53,7 @@ verification/             analysis scripts + the canonical artifacts they produc
                           (aggregate distributions only — no respondent-level data)
 paper_figs/               figure scripts (fig_*.py) + computed intermediates (*.npz, *.json)
 advanced_bias_analysis/   utils.py — shared index builder over raw results
-indiv_cells*/, interesting_questions/   sampling manifests
+indiv_cells/               manifest of cells for the individual-sampling runs
 ```
 
 ## Reproducing the full chain from raw data
