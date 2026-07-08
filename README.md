@@ -80,5 +80,3 @@ robustness comparisons and can be reproduced with the scripts' `--unweighted`
 - Raw JSONL files may contain occasional failed-request records alongside
   successful ones; `DATA_MANIFEST.md` counts successful records only, and the
   scoring scripts skip failures.
-- Known deliberate gaps (religion doubles for 7 waves; Mistral-Small-24B
-  removed from the paper) are documented at the bottom of `DATA_MANIFEST.md`.
