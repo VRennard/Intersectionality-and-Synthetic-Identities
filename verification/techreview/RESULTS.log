@@ -1,0 +1,251 @@
+
+================ t1_rho_bootstrap 10:08:00 ================
+gpt-4o-mini                  mean rho = +0.385  95% wave-bootstrap CI [+0.186, +0.569]  (14 waves)
+claude-haiku-4-5-20251001    mean rho = +0.459  95% wave-bootstrap CI [+0.288, +0.617]  (14 waves)
+gemma2_9b                    mean rho = +0.551  95% wave-bootstrap CI [+0.385, +0.712]  (14 waves)
+gpt-4o                       mean rho = +0.480  95% wave-bootstrap CI [+0.296, +0.653]  (14 waves)
+
+flagship per-dimension mean steering TV (wave-bootstrap 95% CI):
+  Age              human 0.054 [0.048,0.061]   model 0.083 [0.078,0.088]
+  Education        human 0.060 [0.057,0.062]   model 0.100 [0.094,0.105]
+  Gender           human 0.039 [0.034,0.043]   model 0.074 [0.066,0.083]
+  Income           human 0.043 [0.040,0.046]   model 0.088 [0.082,0.093]
+  Political Party  human 0.071 [0.057,0.087]   model 0.130 [0.115,0.144]
+  Race             human 0.080 [0.075,0.085]   model 0.080 [0.073,0.088]
+  Religion         human 0.088 [0.082,0.095]   model 0.093 [0.084,0.103]
+
+================ t5_d3_endpoints_per_model 10:08:01 ================
+model                        ceil_add floor_col   obs index_d3  (synthetic triples)
+gpt-4o-mini                     67.2%      6.6%  7.8%     0.98  (20,000)
+claude-haiku-4-5-20251001       84.6%      3.5%  8.6%     0.94  (20,000)
+gemma2_9b                       79.6%      4.4%  9.2%     0.94  (20,000)
+mistral_latest                  71.8%      6.3%  8.1%     0.97  (20,000)
+llama3_1_8b_instruct_q4         67.3%      6.7% 10.0%     0.94  (20,000)
+gpt-5.5-2026-04-23              75.5%      4.7%  8.9%     0.94  (20,000)
+claude-sonnet-5                 88.9%      2.1%  8.6%     0.92  (20,000)
+
+================ t6_matched_triples 10:08:26 ================
+gpt-4o-mini                  matched-dims share   9.7%  (n=13,739)
+claude-haiku-4-5-20251001    matched-dims share  10.3%  (n=13,732)
+gemma2_9b                    matched-dims share  10.9%  (n=13,741)
+mistral_latest               matched-dims share   9.4%  (n=13,741)
+llama3_1_8b_instruct_q4      matched-dims share  11.6%  (n=13,741)
+gpt-5.5-2026-04-23           matched-dims share   8.9%  (n=13,741)
+claude-sonnet-5              matched-dims share   8.6%  (n=13,598)
+
+strict common-cell set across all 7 models: 13,587 cells
+model                         common-cell additive share
+gpt-4o-mini                                         9.7%
+claude-haiku-4-5-20251001                          10.3%
+gemma2_9b                                          10.9%
+mistral_latest                                      9.5%
+llama3_1_8b_instruct_q4                            11.6%
+gpt-5.5-2026-04-23                                  8.9%
+claude-sonnet-5                                     8.6%
+
+================ t4_base_steering 10:08:42 ================
+W26: 2,285 shared single cells
+W27: 2,932 shared single cells
+W29: 2,329 shared single cells
+W32: 3,001 shared single cells
+W34: 1,995 shared single cells
+W36: 4,115 shared single cells
+W41: 2,607 shared single cells
+W42: 3,788 shared single cells
+W43: 3,038 shared single cells
+W45: 2,918 shared single cells
+W49: 2,933 shared single cells
+W50: 3,737 shared single cells
+W54: 3,529 shared single cells
+W82: 3,015 shared single cells
+W92: 2,384 shared single cells
+
+#18b per-dimension single-feature BIAS magnitude, mean TV(model, human) — 15 waves, shared cells:
+  dimension           A base-ckpt/base-prompt   B instr-ckpt/base-prompt     C instr-ckpt/chat-tmpl
+  Age                                   0.248                      0.242                      0.286
+  Education                             0.254                      0.248                      0.287
+  Gender                                0.241                      0.242                      0.284
+  Income                                0.247                      0.249                      0.296
+  Political Party                       0.252                      0.253                      0.295
+  Race                                  0.255                      0.245                      0.283
+  Religion                              0.271                      0.260                      0.296
+
+#18b within-dimension DIFFERENTIATION, mean pairwise TV between value outputs:
+  dimension           A base-ckpt/base-prompt   B instr-ckpt/base-prompt     C instr-ckpt/chat-tmpl    human
+  Age                                   0.207                      0.159                      0.212    0.095
+  Education                             0.218                      0.177                      0.230    0.097
+  Gender                                0.193                      0.157                      0.202    0.073
+  Income                                0.206                      0.173                      0.215    0.079
+  Political Party                       0.212                      0.183                      0.222    0.120
+  Race                                  0.216                      0.170                      0.217    0.134
+  Religion                              0.231                      0.183                      0.226    0.147
+
+(base conditions produce no population cell, so steering is probed via
+ differentiation between a dimension's own value outputs; a base checkpoint
+ that ignored demographics would show near-zero differentiation)
+
+================ t2_micro_batch 10:09:13 ================
+W26 done: 85,545 (cell,q) stats
+W27 done: 121,415 (cell,q) stats
+W29 done: 100,046 (cell,q) stats
+W32 done: 146,216 (cell,q) stats
+W34 done: 81,681 (cell,q) stats
+W36 done: 130,549 (cell,q) stats
+W41 done: 99,875 (cell,q) stats
+W42 done: 160,594 (cell,q) stats
+W43 done: 175,734 (cell,q) stats
+W45 done: 155,160 (cell,q) stats
+W49 done: 122,665 (cell,q) stats
+W50 done: 156,075 (cell,q) stats
+W54 done: 180,913 (cell,q) stats
+W82 done: 120,112 (cell,q) stats
+W92 done: 146,493 (cell,q) stats
+
+#7 Kish design effect (n / n_eff), by depth:
+  depth 1: mean deff 2.035  median 1.930  p90 2.709  (44,650 cell-questions)
+  depth 2: mean deff 1.913  median 1.812  p90 2.528  (431,066 cell-questions)
+  depth 3: mean deff 1.824  median 1.722  p90 2.414  (1,507,357 cell-questions)
+  (analytic floors scale by sqrt(deff))
+
+#7 noise-corrected squared distinctiveness by depth (raw n vs Kish n_eff):
+  n   : d1 0.0098  d2 0.0196  d3 0.0283   growth d3/d1 = 2.87x
+  neff: d1 0.0069  d2 0.0136  d3 0.0199   growth d3/d1 = 2.86x
+
+#10 within-family depth growth (dimension-triple families with d3 cells):
+  Age+Education+Gender                     d1 0.0063 d2 0.0137 d3 0.0213  d3/d1 3.39x
+  Age+Education+Income                     d1 0.0062 d2 0.0146 d3 0.0241  d3/d1 3.90x
+  Age+Education+Political Party            d1 0.0084 d2 0.0194 d3 0.0334  d3/d1 3.99x
+  Age+Education+Race                       d1 0.0094 d2 0.0199 d3 0.0275  d3/d1 2.93x
+  Age+Education+Religion                   d1 0.0107 d2 0.0203 d3 0.0274  d3/d1 2.57x
+  Age+Gender+Income                        d1 0.0052 d2 0.0127 d3 0.0211  d3/d1 4.04x
+  Age+Gender+Political Party               d1 0.0082 d2 0.0172 d3 0.0271  d3/d1 3.31x
+  Age+Gender+Race                          d1 0.0096 d2 0.0194 d3 0.0285  d3/d1 2.97x
+  Age+Gender+Religion                      d1 0.0114 d2 0.0208 d3 0.0284  d3/d1 2.50x
+  Age+Income+Political Party               d1 0.0076 d2 0.0188 d3 0.0346  d3/d1 4.56x
+  Age+Income+Race                          d1 0.0088 d2 0.0202 d3 0.0278  d3/d1 3.16x
+  Age+Income+Religion                      d1 0.0101 d2 0.0205 d3 0.0291  d3/d1 2.87x
+  Age+Political Party+Race                 d1 0.0115 d2 0.0239 d3 0.0334  d3/d1 2.90x
+  Age+Political Party+Religion             d1 0.0133 d2 0.0250 d3 0.0357  d3/d1 2.69x
+  Age+Race+Religion                        d1 0.0135 d2 0.0240 d3 0.0314  d3/d1 2.32x
+  Education+Gender+Income                  d1 0.0052 d2 0.0114 d3 0.0186  d3/d1 3.59x
+  Education+Gender+Political Party         d1 0.0076 d2 0.0173 d3 0.0279  d3/d1 3.67x
+  Education+Gender+Race                    d1 0.0089 d2 0.0177 d3 0.0249  d3/d1 2.79x
+  Education+Gender+Religion                d1 0.0104 d2 0.0188 d3 0.0257  d3/d1 2.48x
+  Education+Income+Political Party         d1 0.0072 d2 0.0176 d3 0.0322  d3/d1 4.46x
+  Education+Income+Race                    d1 0.0083 d2 0.0180 d3 0.0240  d3/d1 2.88x
+  Education+Income+Religion                d1 0.0095 d2 0.0183 d3 0.0239  d3/d1 2.53x
+  Education+Political Party+Race           d1 0.0106 d2 0.0228 d3 0.0325  d3/d1 3.07x
+  Education+Political Party+Religion       d1 0.0121 d2 0.0237 d3 0.0341  d3/d1 2.82x
+  Education+Race+Religion                  d1 0.0125 d2 0.0220 d3 0.0276  d3/d1 2.21x
+  Gender+Income+Political Party            d1 0.0066 d2 0.0161 d3 0.0275  d3/d1 4.19x
+  Gender+Income+Race                       d1 0.0082 d2 0.0179 d3 0.0257  d3/d1 3.13x
+  Gender+Income+Religion                   d1 0.0097 d2 0.0190 d3 0.0267  d3/d1 2.75x
+  Gender+Political Party+Race              d1 0.0113 d2 0.0216 d3 0.0308  d3/d1 2.73x
+  Gender+Political Party+Religion          d1 0.0134 d2 0.0241 d3 0.0319  d3/d1 2.38x
+  Gender+Race+Religion                     d1 0.0137 d2 0.0218 d3 0.0284  d3/d1 2.07x
+  Income+Political Party+Race              d1 0.0101 d2 0.0231 d3 0.0323  d3/d1 3.21x
+  Income+Political Party+Religion          d1 0.0116 d2 0.0239 d3 0.0355  d3/d1 3.07x
+  Income+Race+Religion                     d1 0.0121 d2 0.0230 d3 0.0294  d3/d1 2.43x
+  Political Party+Race+Religion            d1 0.0152 d2 0.0264 d3 0.0339  d3/d1 2.23x
+  -> 35 families, median growth 2.90x, range 2.07-4.56x
+
+#8b clipping activation (additive-truth pair cells, per-question n>=100):
+  38,047/252,099 = 15.1% of cells have any negative component before clipping
+
+#9 additive recombination from true singles (pair cells):
+  insample : mean TV 0.062  median 0.047  (431,066 cells)
+  cross    : mean TV 0.106  median 0.089  (361,570 cells)
+  (cross-fitted halves carry ~2x the sampling variance; agreement within that bound
+   means shared-sample noise, not composition, is not driving the low error)
+
+================ t3_flagship_pass 10:10:29 ================
+W26 pass done (16,022 pair contests so far)
+W27 pass done (39,067 pair contests so far)
+W29 pass done (55,641 pair contests so far)
+W32 pass done (82,045 pair contests so far)
+W34 pass done (96,255 pair contests so far)
+W36 pass done (127,579 pair contests so far)
+W41 pass done (147,198 pair contests so far)
+W42 pass done (176,612 pair contests so far)
+W43 pass done (202,977 pair contests so far)
+W45 pass done (228,452 pair contests so far)
+W49 pass done (256,187 pair contests so far)
+W50 pass done (285,404 pair contests so far)
+W54 pass done (316,540 pair contests so far)
+W82 pass done (340,833 pair contests so far)
+W92 pass done (363,714 pair contests so far)
+
+#2 contest by ||e_AB|| strata (flagship, 15 waves):
+  cosine zero-guard (<1e-10 norm) triggered in 0/363,714 contests (0.000%)
+  decile  1 (||e_AB|| 0.000-0.103): best-single wins 81.0%  (n=36,372)
+  decile  2 (||e_AB|| 0.103-0.145): best-single wins 79.3%  (n=36,371)
+  decile  3 (||e_AB|| 0.145-0.182): best-single wins 78.7%  (n=36,371)
+  decile  4 (||e_AB|| 0.182-0.216): best-single wins 77.9%  (n=36,372)
+  decile  5 (||e_AB|| 0.216-0.252): best-single wins 77.6%  (n=36,371)
+  decile  6 (||e_AB|| 0.252-0.292): best-single wins 77.9%  (n=36,371)
+  decile  7 (||e_AB|| 0.292-0.339): best-single wins 77.8%  (n=36,372)
+  decile  8 (||e_AB|| 0.339-0.399): best-single wins 77.7%  (n=36,371)
+  decile  9 (||e_AB|| 0.399-0.491): best-single wins 77.3%  (n=36,371)
+  decile 10 (||e_AB|| 0.491-1.354): best-single wins 78.6%  (n=36,372)
+  excluding ||e_AB|| < 0.01: 78.4% (0.1% of cells excluded)  [all cells: 78.4%]
+  excluding ||e_AB|| < 0.02: 78.4% (0.2% of cells excluded)  [all cells: 78.4%]
+  excluding ||e_AB|| < 0.05: 78.3% (1.5% of cells excluded)  [all cells: 78.4%]
+
+#17 collapse rate and retention by dimension pair (flagship):
+  pair                          contested collapsed  keep split (dim: kept% | human-dom%)
+  Age+Education                    20,082     81.7%  Age 50%|47%  Education 50%|53%
+  Age+Gender                       11,792     76.3%  Age 58%|66%  Gender 42%|34%
+  Age+Income                       28,885     76.6%  Age 49%|51%  Income 51%|49%
+  Age+Political Party              17,551     76.0%  Age 45%|50%  Political Party 55%|50%
+  Age+Race                         22,169     78.0%  Age 45%|36%  Race 55%|64%
+  Age+Religion                     18,910     78.2%  Age 46%|42%  Religion 54%|58%
+  Education+Gender                 10,401     80.9%  Education 54%|70%  Gender 46%|30%
+  Education+Income                 23,129     83.1%  Education 50%|53%  Income 50%|47%
+  Education+Political Party        15,604     81.1%  Education 52%|53%  Political Party 48%|47%
+  Education+Race                   16,499     81.5%  Education 48%|43%  Race 52%|57%
+  Education+Religion               14,601     80.9%  Education 50%|48%  Religion 50%|52%
+  Gender+Income                    14,822     75.9%  Gender 42%|35%  Income 58%|65%
+  Gender+Political Party            8,907     77.1%  Gender 36%|35%  Political Party 64%|65%
+  Gender+Race                      14,619     77.6%  Gender 37%|22%  Race 63%|78%
+  Gender+Religion                  11,708     77.0%  Gender 37%|25%  Religion 63%|75%
+  Income+Political Party           21,964     75.5%  Income 47%|50%  Political Party 53%|50%
+  Income+Race                      25,271     78.3%  Income 50%|38%  Race 50%|62%
+  Income+Religion                  22,493     77.4%  Income 48%|43%  Religion 52%|57%
+  Political Party+Race             16,793     77.7%  Political Party 50%|39%  Race 50%|61%
+  Political Party+Religion         14,178     76.3%  Political Party 53%|44%  Religion 47%|56%
+  Race+Religion                    13,336     78.1%  Race 50%|54%  Religion 50%|46%
+
+#17 value-level keep-rate minus dom-rate (Race and Religion values):
+  Race      Asian                        kept  61.1%  dom  80.1%  delta -19.0 pts  (contested 11,675)
+  Race      Black                        kept  58.4%  dom  77.4%  delta -19.0 pts  (contested 19,360)
+  Race      Hispanic                     kept  56.3%  dom  78.6%  delta -22.3 pts  (contested 16,546)
+  Race      Mixed Race                   kept  55.8%  dom  75.1%  delta -19.3 pts  (contested 10,007)
+  Race      Other                        kept  58.6%  dom  81.0%  delta -22.5 pts  (contested 3,157)
+  Race      White                        kept  40.5%  dom  24.2%  delta +16.3 pts  (contested 24,606)
+  Religion  Atheist                      kept  65.0%  dom  85.7%  delta -20.7 pts  (contested 16,874)
+  Religion  Jewish                       kept  58.4%  dom  81.4%  delta -23.0 pts  (contested 9,173)
+  Religion  Protestant                   kept  45.4%  dom  39.0%  delta +6.4 pts  (contested 24,788)
+  Religion  Roman Catholic               kept  48.1%  dom  44.2%  delta +3.9 pts  (contested 22,636)
+
+#21b random-unrelated null, raw vs population-bias-residualized (flagship):
+  raw:          median cos 0.839  (n=363,714)
+  residualized: median cos 0.280  (n=363,714)
+
+#20 entropy robustness, dH = H(model) - H_MM(human) by depth (wave-cluster 95% CI):
+  dH (nats)                  d1: +0.180 [+0.159, +0.201]  (15 waves)
+  dH (nats)                  d2: +0.206 [+0.186, +0.225]  (15 waves)
+  dH (nats)                  d3: +0.234 [+0.216, +0.251]  (15 waves)
+  dH, cells n>=100           d1: +0.180 [+0.159, +0.201]  (15 waves)
+  dH, cells n>=100           d2: +0.200 [+0.180, +0.220]  (15 waves)
+  dH, cells n>=100           d3: +0.222 [+0.202, +0.243]  (15 waves)
+  dH / log K                 d1: +0.127 [+0.112, +0.143]  (15 waves)
+  dH / log K                 d2: +0.146 [+0.132, +0.160]  (15 waves)
+  dH / log K                 d3: +0.168 [+0.156, +0.180]  (15 waves)
+  Herfindahl impurity diff   d1: +0.075 [+0.062, +0.087]  (15 waves)
+  Herfindahl impurity diff   d2: +0.092 [+0.081, +0.104]  (15 waves)
+  Herfindahl impurity diff   d3: +0.111 [+0.102, +0.121]  (15 waves)
+  dH, refusal-excluded       d1: +0.088 [+0.069, +0.105]  (15 waves)
+  dH, refusal-excluded       d2: +0.107 [+0.088, +0.124]  (15 waves)
+  dH, refusal-excluded       d3: +0.126 [+0.108, +0.142]  (15 waves)
+
+================ BATCH DONE 10:11:31 ================
