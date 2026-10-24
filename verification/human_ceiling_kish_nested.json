@@ -1,0 +1,28 @@
+{
+ "n100": {
+  "human": 0.4444777657633304,
+  "base": 0.4940486247212273,
+  "kish": 0.4134495167939447,
+  "nested": 0.5465634925998514,
+  "both": 0.5364558694329932,
+  "cells": 236752,
+  "human_over_base": 0.899664007797071,
+  "human_over_kish": 1.0750472493231855,
+  "human_over_nested": 0.8132225656877897,
+  "human_over_both": 0.8285448833528861
+ },
+ "n200": {
+  "human": 0.47773516529178955,
+  "base": 0.5254051402919598,
+  "kish": 0.44146838236796754,
+  "nested": 0.5683340031743653,
+  "both": 0.5624416727406489,
+  "cells": 146801,
+  "human_over_base": 0.9092700635291068,
+  "human_over_kish": 1.0821503518084186,
+  "human_over_nested": 0.8405887429283727,
+  "human_over_both": 0.8493950367580267
+ },
+ "neff_over_n_median": 0.5324839319248681,
+ "note": "Human additivity contest: published reference vs three variants.\nScratch reimplementation of the human side of human_and_llm_steering_contest()\nin code/verification/human_additivity_calibration.py (weighted basis).\nVariants of the additive-truth reference draw:\n  base   : multinomial at the cell's RAW n (published construction)\n  kish   : multinomial at the Kish effective n of the pair cell on that question\n  nested : synthetic singles inherit the synthetic pair draw in proportion to the\n           pair's weight share inside each single (real singles inherit the real pair)\n  both   : kish + nested\nReal human shares are recomputed for verification against the published 44.4% / 47.8%.\n"
+}
