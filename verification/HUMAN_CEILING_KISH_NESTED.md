@@ -14,7 +14,7 @@ Weighted basis, 14 ATP waves (W49 excluded, as in the published calibration), sa
 
 | Gate (raw n) | Pair cells | Human additive share | Published ceiling (raw n, independent) | Kish + nested ceiling | Attainment, published | Attainment, Kish + nested |
 |---|---|---|---|---|---|---|
-| n ≥ 100 | 236,752 | 44.4% | 49.3% | 53.6% | 90% | **82.8%** |
+| n ≥ 100 | 236,752 | 44.4% | 49.3% | 53.6% | 90% | **82.9%** |
 | n ≥ 200 | 146,801 | 47.8% | 52.5% | 56.2% | 91% | **84.9%** |
 
 The ceiling is a Monte Carlo draw. A second, independent run of the same construction gave 83.0% and 84.8%, so the attainment figures carry about ±0.1 points of simulation noise.
